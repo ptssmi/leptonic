@@ -76,18 +76,21 @@ int main(int argc, char *argv[])
   log_info("VoSPI stream synchronised");
 
   // Parse the telemetry data
-  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0]));
+  // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0]));
+  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[1].packets[0]));
 
-  log_info("Telmetry data decoded:");
-  log_info("Msec since boot: %02x", data.msec_since_boot);
-  log_info("Msec since last FFC: %02x", data.msec_last_ffc);
-  log_info("Frame mean: %02x", data.frame_mean);
-  log_info("FPA Temp Kelvin100: %02x", data.fpa_temp_kelvin_100);
-  log_info("FFC Desired: %02x", data.status_bits.ffc_desired);
-  log_info("FFC State: %02x", data.status_bits.ffc_state);
-  log_info("AGC State: %02x", data.status_bits.agc_state);
-  log_info("Shutter locked?: %02x", data.status_bits.shutter_lockout);
-  log_info("Overtemp shutdown imminent?: %02x", data.status_bits.overtemp_shutdown_imminent);
+  // log_info("Telmetry data decoded:");
+  // log_info("Msec since boot: %02x", data.msec_since_boot);
+  // log_info("Msec since last FFC: %02x", data.msec_last_ffc);
+  // log_info("Frame mean: %02x", data.frame_mean);
+  // log_info("FPA Temp Kelvin100: %02x", data.fpa_temp_kelvin_100);
+  // log_info("FFC Desired: %02x", data.status_bits.ffc_desired);
+  // log_info("FFC State: %02x", data.status_bits.ffc_state);
+  // log_info("AGC State: %02x", data.status_bits.agc_state);
+  // log_info("Shutter locked?: %02x", data.status_bits.shutter_lockout);
+  // log_info("Overtemp shutdown imminent?: %02x", data.status_bits.overtemp_shutdown_imminent);
+
+  log_info("Background Temperature: %02x",data.background_temp);
 
   // Disable telemetry again to leave the module in a usable state for other examples
   cci_set_telemetry_enable_state(i2c_fd, CCI_TELEMETRY_DISABLED);
