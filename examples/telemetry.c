@@ -100,9 +100,9 @@ int main(int argc, char *argv[])
   // printf(data.background_temp);
 
   temp_farenheit = ((data.background_temp/100) - 273.15);
+  printf(temp_farenheit);
 
-
-  log_info("Background Temperature: %f",temp_farenheit);
+  // log_info("Background Temperature: %f",temp_farenheit);
 
   }
 
