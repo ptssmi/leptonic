@@ -8,9 +8,6 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-
-
-
 /**
  * Main entry point for example.
  *
@@ -64,8 +61,7 @@ int main(int argc, char *argv[])
   log_info("CCI telemetry enable state: %d", cci_get_telemetry_enable_state(i2c_fd));
   log_info("CCI telemetry location: %d", cci_get_telemetry_location(i2c_fd));
 
-  //Pass in a while(1) in here to make it always update. Add in a keyboard command to disable telemetry and close everything
-  //Also have print statements update instead of print out hella times
+  //Infinite loop to constantly read temperature
   while(1){
 
   // Allocate space to receive the segments
@@ -98,10 +94,7 @@ int main(int argc, char *argv[])
   // log_info("Shutter locked?: %02x", data.status_bits.shutter_lockout);
   // log_info("Overtemp shutdown imminent?: %02x", data.status_bits.overtemp_shutdown_imminent);
 
-  // printf(data.background_temp);
-
   temp_farenheit = (((data.background_temp/100) - 273.15) * 1.8) + 32;
-  // printf(temp_farenheit);
 
   printf("\rBackground Temperature: %0.2f °F",temp_farenheit);
 
