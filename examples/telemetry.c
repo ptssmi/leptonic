@@ -60,6 +60,10 @@ int main(int argc, char *argv[])
   log_info("CCI telemetry enable state: %d", cci_get_telemetry_enable_state(i2c_fd));
   log_info("CCI telemetry location: %d", cci_get_telemetry_location(i2c_fd));
 
+  //Pass in a while(1) in here to make it always update. Add in a keyboard command to disable telemetry and close everything
+  //Also have print statements update instead of print out hella times
+  while(!hbhit()){
+
   // Allocate space to receive the segments
   log_debug("allocating space for segments...");
   vospi_frame_t frame;
@@ -77,7 +81,7 @@ int main(int argc, char *argv[])
 
   // Parse the telemetry data
   // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0]));
-  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[1].packets[0]));
+  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[1].packets[0])); //reads B register by adding in 1
 
   // log_info("Telmetry data decoded:");
   // log_info("Msec since boot: %02x", data.msec_since_boot);
@@ -90,7 +94,11 @@ int main(int argc, char *argv[])
   // log_info("Shutter locked?: %02x", data.status_bits.shutter_lockout);
   // log_info("Overtemp shutdown imminent?: %02x", data.status_bits.overtemp_shutdown_imminent);
 
-  log_info("Background Temperature: %02x",data.background_temp);
+  printf(data.background_temp)
+
+  //log_info("Background Temperature: %02x",data.background_temp);
+
+  }
 
   // Disable telemetry again to leave the module in a usable state for other examples
   cci_set_telemetry_enable_state(i2c_fd, CCI_TELEMETRY_DISABLED);
@@ -100,4 +108,5 @@ int main(int argc, char *argv[])
   close(i2c_fd);
 
   return 0;
+  
 }
