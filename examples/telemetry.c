@@ -8,6 +8,8 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
+double temp_farenheit
+
 
 /**
  * Main entry point for example.
@@ -97,8 +99,10 @@ int main(int argc, char *argv[])
 
   // printf(data.background_temp);
 
+  temp_farenheit = ((data.background_temp/100) - 273.15)
 
-  log_info("Background Temperature: %d",data.background_temp);
+
+  log_info("Background Temperature: %f",temp_farenheit);
 
   }
 
