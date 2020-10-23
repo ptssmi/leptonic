@@ -95,9 +95,9 @@ int main(int argc, char *argv[])
   // log_info("Shutter locked?: %02x", data.status_bits.shutter_lockout);
   // log_info("Overtemp shutdown imminent?: %02x", data.status_bits.overtemp_shutdown_imminent);
 
-  printf(data.background_temp);
+  // printf(data.background_temp);
 
-  //log_info("Background Temperature: %02x",data.background_temp);
+  log_info("Background Temperature: %02x",data.background_temp);
 
   }
 
