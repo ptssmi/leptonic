@@ -108,15 +108,15 @@ int main(int argc, char *argv[])
   spotmeter_max = (((data.spotmeter_max_temp/100) - 273.15) * 1.8) + 32;
   spotmeter_min = (((data.spotmeter_min_temp/100) - 273.15) * 1.8) + 32;
 
-  printf("T-Linear Resolution: %d \n",data.tlinear_resolution);
+  printf("T-Linear Resolution: %02x \n",data.tlinear_resolution);
   printf("Spotmeter Mean Temp: %0.2f °F \n",spotmeter_mean);
   printf("Spotmeter Max Temp: %0.2f °F \n",spotmeter_max);
   printf("Spotmeter Min Temp: %0.2f °F \n",spotmeter_min);
-  printf("Spotmeter Population: %d \n",data.spotmeter_population);
-  printf("Spotmeter Start Row: %d \n",data.spotmeter_start_row);
-  printf("Spotmeter Start Column: %d \n",data.spotmeter_start_col);
-  printf("Spotmeter End Row: %d \n",data.spotmeter_end_row);
-  printf("Spotmeter End Column: %d \n",data.spotmeter_end_col);
+  printf("Spotmeter Population: %02x \n",data.spotmeter_population);
+  printf("Spotmeter Start Row: %02x \n",data.spotmeter_start_row);
+  printf("Spotmeter Start Column: %02x \n",data.spotmeter_start_col);
+  printf("Spotmeter End Row: %02x \n",data.spotmeter_end_row);
+  printf("Spotmeter End Column: %02x \n",data.spotmeter_end_col);
 
   }
 
