@@ -22,6 +22,8 @@
 /* Telemetry Data Content (see pg. 23 of the Lepton3 LWIR Datasheet) */
 /* Only covers Telemetry Row A, as there's nothing interesting in B... */
 typedef struct {
+  //A Register Values
+
   // uint16_t revision;
   // uint32_t msec_since_boot;
   // telemetry_data_status_bits_t status_bits;
@@ -39,7 +41,12 @@ typedef struct {
   // uint16_t agc_clip_limit_high;
   // uint16_t agc_clip_limit_low;
   // uint32_t video_output_format;
-  uint16_t background_temp;
+
+  //B Register Values
+  // uint16_t background_temp;
+
+  //C Register Values
+  uint16_t spotmeter_mean_temp;
 } telemetry_data_t;
 
 telemetry_data_t parse_telemetry_packet(vospi_packet_t* packet);

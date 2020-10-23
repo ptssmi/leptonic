@@ -15,6 +15,8 @@ telemetry_data_t parse_telemetry_packet(vospi_packet_t* packet)
   // };
 
   telemetry_data_t telemetry_data = {
+
+    //A Register
     // .revision = LEPTON_WORD(packet->symbols, 0),
     // .msec_since_boot = LEPTON_DWORD(packet->symbols, 2),
     // .status_bits = status_bits,
@@ -31,7 +33,12 @@ telemetry_data_t parse_telemetry_packet(vospi_packet_t* packet)
     // .agc_clip_limit_high = LEPTON_WORD(packet->symbols, 76),
     // .agc_clip_limit_low = LEPTON_WORD(packet->symbols, 78),
     // .video_output_format = LEPTON_DWORD(packet->symbols, 144)
-    .background_temp = LEPTON_WORD(packet->symbols,20)
+
+    //B Register
+    // .background_temp = LEPTON_WORD(packet->symbols,20)
+
+    //C Register
+    .spotmeter_mean_temp = LEPTON_WORD(packet->symbols,50)
   };
 
   return telemetry_data;

@@ -80,9 +80,11 @@ int main(int argc, char *argv[])
   //log_info("VoSPI stream synchronised");
 
   // Parse the telemetry data
-  // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0]));
-  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[1].packets[0])); //reads B register by adding in 1
+  // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0])); //reads A register
+  // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[1].packets[0])); //reads B register 
+  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[2].packets[0])); //reads C register
 
+  //A Register
   // log_info("Telmetry data decoded:");
   // log_info("Msec since boot: %02x", data.msec_since_boot);
   // log_info("Msec since last FFC: %02x", data.msec_last_ffc);
@@ -94,9 +96,15 @@ int main(int argc, char *argv[])
   // log_info("Shutter locked?: %02x", data.status_bits.shutter_lockout);
   // log_info("Overtemp shutdown imminent?: %02x", data.status_bits.overtemp_shutdown_imminent);
 
-  temp_farenheit = (((data.background_temp/100) - 273.15) * 1.8) + 32;
+  //B Register
+  // temp_farenheit = (((data.background_temp/100) - 273.15) * 1.8) + 32;
+  
+  //C Register
+  temp_farenheit = (((data.spotmeter_mean_temp/100) - 273.15) * 1.8) + 32;
+
 
   printf("\rBackground Temperature: %0.2f °F",temp_farenheit);
+
 
   }
 
