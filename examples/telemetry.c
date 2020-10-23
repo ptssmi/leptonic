@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 
   //Pass in a while(1) in here to make it always update. Add in a keyboard command to disable telemetry and close everything
   //Also have print statements update instead of print out hella times
-  while(!hbhit()){
+  while(1){
 
   // Allocate space to receive the segments
   log_debug("allocating space for segments...");
