@@ -97,7 +97,8 @@ int main(int argc, char *argv[])
 
   // printf(data.background_temp);
 
-  log_info("Background Temperature: %02x",data.background_temp);
+
+  log_info("Background Temperature: %d",data.background_temp);
 
   }
 
