@@ -18,7 +18,7 @@
  */
 int main(int argc, char *argv[])
 {
-  double temp_farenheit
+  double temp_farenheit;
   log_set_level(LOG_INFO);
   int spi_fd, i2c_fd;
 
