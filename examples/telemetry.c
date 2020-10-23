@@ -18,7 +18,7 @@
  */
 int main(int argc, char *argv[])
 {
-  double temp_farenheit;
+  double temp_farenheit
   log_set_level(LOG_INFO);
   int spi_fd, i2c_fd;
 
@@ -101,9 +101,9 @@ int main(int argc, char *argv[])
   // printf(data.background_temp);
 
   temp_farenheit = ((data.background_temp/100) - 273.15);
-  printf(temp_farenheit);
+  // printf(temp_farenheit);
 
-  // log_info("Background Temperature: %f",temp_farenheit);
+  log_info("Background Temperature: %f",temp_farenheit);
 
   }
 
