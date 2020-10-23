@@ -76,12 +76,12 @@ int main(int argc, char *argv[])
   }
 
   // Synchronise and transfer a single frame
-  log_info("aquiring VoSPI synchronisation");
+  //log_info("aquiring VoSPI synchronisation");
   if (0 == sync_and_transfer_frame(spi_fd, &frame)) {
     log_error("failed to obtain frame from device.");
     exit(-10);
   }
-  log_info("VoSPI stream synchronised");
+  //log_info("VoSPI stream synchronised");
 
   // Parse the telemetry data
   // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0]));
@@ -103,7 +103,7 @@ int main(int argc, char *argv[])
   temp_farenheit = (((data.background_temp/100) - 273.15) * 1.8) + 32;
   // printf(temp_farenheit);
 
-  log_info("\rBackground Temperature: %0.2f °F",temp_farenheit);
+  printf("\rBackground Temperature: %0.2f °F",temp_farenheit);
 
   }
 
