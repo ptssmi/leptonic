@@ -38,7 +38,16 @@ telemetry_data_t parse_telemetry_packet(vospi_packet_t* packet)
     // .background_temp = LEPTON_WORD(packet->symbols,20)
 
     //C Register
+    .tlinear_resolution = LEPTON_WORD(packet->symbols,49)
     .spotmeter_mean_temp = LEPTON_WORD(packet->symbols,50)
+    .spotmeter_max_temp = LEPTON_WORD(packet->symbols,51)
+    .spotmeter_min_temp = LEPTON_WORD(packet->symbols,52)
+    .spotmeter_population = LEPTON_WORD(packet->symbols,53)
+    .spotmeter_start_row = LEPTON_WORD(packet->symbols,54)
+    .spotmeter_start_col = LEPTON_WORD(packet->symbols,55)
+    .spotmeter_end_row = LEPTON_WORD(packet->symbols,56)
+    .spotmeter_end_col = LEPTON_WORD(packet->symbols,57)
+    
   };
 
   return telemetry_data;

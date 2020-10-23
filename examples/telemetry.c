@@ -15,7 +15,11 @@
  */
 int main(int argc, char *argv[])
 {
-  double temp_farenheit;
+  //initialize variables
+  double spotmeter_mean;
+  double spotmeter_max;
+  double spotmeter_min;
+
   log_set_level(LOG_INFO);
   int spi_fd, i2c_fd;
 
@@ -100,11 +104,19 @@ int main(int argc, char *argv[])
   // temp_farenheit = (((data.background_temp/100) - 273.15) * 1.8) + 32;
   
   //C Register
-  temp_farenheit = (((data.spotmeter_mean_temp/100) - 273.15) * 1.8) + 32;
+  spotmeter_mean = (((data.spotmeter_mean_temp/100) - 273.15) * 1.8) + 32;
+  spotmeter_max = (((data.spotmeter_max_temp/100) - 273.15) * 1.8) + 32;
+  spotmeter_min = (((data.spotmeter_min_temp/100) - 273.15) * 1.8) + 32;
 
-
-  printf("\rBackground Temperature: %0.2f °F",temp_farenheit);
-
+  printf("\rT-Linear Resolution: %d",data.tlinear_resolution);
+  printf("\rSpotmeter Mean Temp: %0.2f °F",spotmeter_mean);
+  printf("\rSpotmeter Max Temp: %0.2f °F",spotmeter_max);
+  printf("\rSpotmeter Min Temp: %0.2f °F",spotmeter_min);
+  printf("\rSpotmeter Population: %d",data.spotmeter_population);
+  printf("\rSpotmeter Start Row: %d",data.spotmeter_start_row);
+  printf("\rSpotmeter Start Column: %d",data.spotmeter_start_col);
+  printf("\rSpotmeter End Row: %d",data.spotmeter_end_row);
+  printf("\rSpotmeter End Column: %d",data.spotmeter_end_col);
 
   }
 
