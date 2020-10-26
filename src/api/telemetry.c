@@ -17,36 +17,36 @@ telemetry_data_t parse_telemetry_packet(vospi_packet_t* packet)
   telemetry_data_t telemetry_data = {
 
     //A Register
-    .revision = LEPTON_WORD(packet->symbols, 0),
-    .msec_since_boot = LEPTON_DWORD(packet->symbols, 2),
-    .status_bits = status_bits,
-    .frame_count = LEPTON_DWORD(packet->symbols, 40),
-    .frame_mean = LEPTON_WORD(packet->symbols, 44),
-    .fpa_temp_count = LEPTON_WORD(packet->symbols, 46),
-    .fpa_temp_kelvin_100 = LEPTON_WORD(packet->symbols, 48),
-    .fpa_temp_last_ffc_kelvin_100 = LEPTON_WORD(packet->symbols, 58),
-    .msec_last_ffc = LEPTON_DWORD(packet->symbols, 60),
-    .agc_roi_top = LEPTON_WORD(packet->symbols, 68),
-    .agc_roi_left = LEPTON_WORD(packet->symbols, 70),
-    .agc_roi_bottom = LEPTON_WORD(packet->symbols, 72),
-    .agc_roi_right = LEPTON_WORD(packet->symbols, 74),
-    .agc_clip_limit_high = LEPTON_WORD(packet->symbols, 76),
-    .agc_clip_limit_low = LEPTON_WORD(packet->symbols, 78),
-    .video_output_format = LEPTON_DWORD(packet->symbols, 144)
+    // .revision = LEPTON_WORD(packet->symbols, 0),
+    // .msec_since_boot = LEPTON_DWORD(packet->symbols, 2),
+    // .status_bits = status_bits,
+    // .frame_count = LEPTON_DWORD(packet->symbols, 40),
+    // .frame_mean = LEPTON_WORD(packet->symbols, 44),
+    // .fpa_temp_count = LEPTON_WORD(packet->symbols, 46),
+    // .fpa_temp_kelvin_100 = LEPTON_WORD(packet->symbols, 48),
+    // .fpa_temp_last_ffc_kelvin_100 = LEPTON_WORD(packet->symbols, 58),
+    // .msec_last_ffc = LEPTON_DWORD(packet->symbols, 60),
+    // .agc_roi_top = LEPTON_WORD(packet->symbols, 68),
+    // .agc_roi_left = LEPTON_WORD(packet->symbols, 70),
+    // .agc_roi_bottom = LEPTON_WORD(packet->symbols, 72),
+    // .agc_roi_right = LEPTON_WORD(packet->symbols, 74),
+    // .agc_clip_limit_high = LEPTON_WORD(packet->symbols, 76),
+    // .agc_clip_limit_low = LEPTON_WORD(packet->symbols, 78),
+    // .video_output_format = LEPTON_DWORD(packet->symbols, 144)
 
     //B Register
     // .background_temp = LEPTON_WORD(packet->symbols,20)
 
     //C Register
-    // .tlinear_resolution = LEPTON_WORD(packet->symbols,49),
-    // .spotmeter_mean_temp = LEPTON_WORD(packet->symbols,50),
-    // .spotmeter_max_temp = LEPTON_WORD(packet->symbols,51),
-    // .spotmeter_min_temp = LEPTON_WORD(packet->symbols,52),
-    // .spotmeter_population = LEPTON_WORD(packet->symbols,53),
-    // .spotmeter_start_row = LEPTON_WORD(packet->symbols,54),
-    // .spotmeter_start_col = LEPTON_WORD(packet->symbols,55),
-    // .spotmeter_end_row = LEPTON_WORD(packet->symbols,56),
-    // .spotmeter_end_col = LEPTON_WORD(packet->symbols,57)
+    .tlinear_resolution = LEPTON_WORD(packet->symbols,49),
+    .spotmeter_mean_temp = LEPTON_WORD(packet->symbols,50),
+    .spotmeter_max_temp = LEPTON_WORD(packet->symbols,51),
+    .spotmeter_min_temp = LEPTON_WORD(packet->symbols,52),
+    .spotmeter_population = LEPTON_WORD(packet->symbols,53),
+    .spotmeter_start_row = LEPTON_WORD(packet->symbols,54),
+    .spotmeter_start_col = LEPTON_WORD(packet->symbols,55),
+    .spotmeter_end_row = LEPTON_WORD(packet->symbols,56),
+    .spotmeter_end_col = LEPTON_WORD(packet->symbols,57)
     
   };
 
