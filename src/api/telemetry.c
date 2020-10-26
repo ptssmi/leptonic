@@ -40,7 +40,7 @@ telemetry_data_t parse_telemetry_packet(vospi_packet_t* packet)
     //C Register
     .tlinear_resolution = LEPTON_WORD(packet->symbols,49),
     // .spotmeter_mean_temp = LEPTON_WORD(packet->symbols,50),
-    .spotmeter_mean_temp = LEPTON_WORD(packet->symbols,208),
+    .spotmeter_mean_temp = LEPTON_WORD(packet->symbols,204),
     .spotmeter_max_temp = LEPTON_WORD(packet->symbols,51),
     .spotmeter_min_temp = LEPTON_WORD(packet->symbols,52),
     .spotmeter_population = LEPTON_WORD(packet->symbols,53),
