@@ -46,6 +46,7 @@ typedef struct {
   // uint16_t background_temp;
 
   //C Register Values
+  uint16_t gain_mode;
   uint16_t tlinear_resolution;
   uint16_t spotmeter_mean_temp;
   uint16_t spotmeter_max_temp;
