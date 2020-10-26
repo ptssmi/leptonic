@@ -6,13 +6,13 @@ telemetry_data_t parse_telemetry_packet(vospi_packet_t* packet)
   uint32_t reordered_status_bits = LEPTON_DWORD(packet->symbols, 6);
 
   // Decode the status bits first
-  telemetry_data_status_bits_t status_bits = {
-    .ffc_desired = (reordered_status_bits & 0x08) >> 3,
-    .ffc_state = (reordered_status_bits & 0x30) >> 4,
-    .agc_state = (reordered_status_bits & 0x1000) >> 12,
-    .shutter_lockout = (reordered_status_bits & 0x4000) >> 15,
-    .overtemp_shutdown_imminent = (reordered_status_bits & 0x100000) >> 20
-  };
+  // telemetry_data_status_bits_t status_bits = {
+  //   .ffc_desired = (reordered_status_bits & 0x08) >> 3,
+  //   .ffc_state = (reordered_status_bits & 0x30) >> 4,
+  //   .agc_state = (reordered_status_bits & 0x1000) >> 12,
+  //   .shutter_lockout = (reordered_status_bits & 0x4000) >> 15,
+  //   .overtemp_shutdown_imminent = (reordered_status_bits & 0x100000) >> 20
+  // };
 
   telemetry_data_t telemetry_data = {
 
