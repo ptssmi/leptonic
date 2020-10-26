@@ -84,39 +84,39 @@ int main(int argc, char *argv[])
   //log_info("VoSPI stream synchronised");
 
   // Parse the telemetry data
-  // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0])); //reads A register
+  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0])); //reads A register
   // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[1].packets[0])); //reads B register 
-  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[2].packets[54])); //reads C register
+  // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[2].packets[0])); //reads C register
 
   //A Register
-  // log_info("Telmetry data decoded:");
-  // log_info("Msec since boot: %02x", data.msec_since_boot);
-  // log_info("Msec since last FFC: %02x", data.msec_last_ffc);
-  // log_info("Frame mean: %02x", data.frame_mean);
-  // log_info("FPA Temp Kelvin100: %02x", data.fpa_temp_kelvin_100);
-  // log_info("FFC Desired: %02x", data.status_bits.ffc_desired);
-  // log_info("FFC State: %02x", data.status_bits.ffc_state);
-  // log_info("AGC State: %02x", data.status_bits.agc_state);
-  // log_info("Shutter locked?: %02x", data.status_bits.shutter_lockout);
-  // log_info("Overtemp shutdown imminent?: %02x", data.status_bits.overtemp_shutdown_imminent);
+  log_info("Telmetry data decoded:");
+  log_info("Msec since boot: %02x", data.msec_since_boot);
+  log_info("Msec since last FFC: %02x", data.msec_last_ffc);
+  log_info("Frame mean: %02x", data.frame_mean);
+  log_info("FPA Temp Kelvin100: %02x", data.fpa_temp_kelvin_100);
+  log_info("FFC Desired: %02x", data.status_bits.ffc_desired);
+  log_info("FFC State: %02x", data.status_bits.ffc_state);
+  log_info("AGC State: %02x", data.status_bits.agc_state);
+  log_info("Shutter locked?: %02x", data.status_bits.shutter_lockout);
+  log_info("Overtemp shutdown imminent?: %02x", data.status_bits.overtemp_shutdown_imminent);
 
   //B Register
   // temp_farenheit = (((data.background_temp/100) - 273.15) * 1.8) + 32;
   
   //C Register
   //spotmeter_mean = (((data.spotmeter_mean_temp/100) - 273.15) * 1.8) + 32;
-  spotmeter_max = (((data.spotmeter_max_temp/100) - 273.15) * 1.8) + 32;
-  spotmeter_min = (((data.spotmeter_min_temp/100) - 273.15) * 1.8) + 32;
+  // spotmeter_max = (((data.spotmeter_max_temp/100) - 273.15) * 1.8) + 32;
+  // spotmeter_min = (((data.spotmeter_min_temp/100) - 273.15) * 1.8) + 32;
 
-  // printf("T-Linear Resolution: %02x \n",data.tlinear_resolution);
-  // printf("Spotmeter Mean Temp: %0.2f °F \n",spotmeter_mean);
-  // printf("Spotmeter Max Temp: %0.2f °F \n",spotmeter_max);
-  // printf("Spotmeter Min Temp: %0.2f °F \n",spotmeter_min);
-  // printf("Spotmeter Population: %02x \n",data.spotmeter_population);
-  printf("Spotmeter Start Row: %d \n",data.spotmeter_start_row);
-  printf("Spotmeter Start Column: %d \n",data.spotmeter_start_col);
-  printf("Spotmeter End Row: %d \n",data.spotmeter_end_row);
-  printf("Spotmeter End Column: %d \n",data.spotmeter_end_col);
+  // // printf("T-Linear Resolution: %02x \n",data.tlinear_resolution);
+  // // printf("Spotmeter Mean Temp: %0.2f °F \n",spotmeter_mean);
+  // // printf("Spotmeter Max Temp: %0.2f °F \n",spotmeter_max);
+  // // printf("Spotmeter Min Temp: %0.2f °F \n",spotmeter_min);
+  // // printf("Spotmeter Population: %02x \n",data.spotmeter_population);
+  // printf("Spotmeter Start Row: %d \n",data.spotmeter_start_row);
+  // printf("Spotmeter Start Column: %d \n",data.spotmeter_start_col);
+  // printf("Spotmeter End Row: %d \n",data.spotmeter_end_row);
+  // printf("Spotmeter End Column: %d \n",data.spotmeter_end_col);
 
   // printf("Spotmeter Data: %02x \n",data.spotmeter_mean_temp);
 
