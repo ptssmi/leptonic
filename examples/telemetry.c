@@ -86,7 +86,7 @@ int main(int argc, char *argv[])
   // Parse the telemetry data
   // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0])); //reads A register
   // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[1].packets[0])); //reads B register 
-  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[2])); //reads C register
+  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[3])); //reads C register
 
   //A Register
   // log_info("Telmetry data decoded:");
@@ -113,10 +113,10 @@ int main(int argc, char *argv[])
   // printf("Spotmeter Max Temp: %0.2f °F \n",spotmeter_max);
   // printf("Spotmeter Min Temp: %0.2f °F \n",spotmeter_min);
   // printf("Spotmeter Population: %02x \n",data.spotmeter_population);
-  printf("Spotmeter Start Row: %02x \n",data.spotmeter_start_row);
-  printf("Spotmeter Start Column: %02x \n",data.spotmeter_start_col);
-  printf("Spotmeter End Row: %02x \n",data.spotmeter_end_row);
-  printf("Spotmeter End Column: %02x \n",data.spotmeter_end_col);
+  printf("Spotmeter Start Row: %d \n",data.spotmeter_start_row);
+  printf("Spotmeter Start Column: %d \n",data.spotmeter_start_col);
+  printf("Spotmeter End Row: %d \n",data.spotmeter_end_row);
+  printf("Spotmeter End Column: %d \n",data.spotmeter_end_col);
 
   // printf("Spotmeter Data: %02x \n",data.spotmeter_mean_temp);
 
