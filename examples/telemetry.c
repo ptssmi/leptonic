@@ -102,6 +102,8 @@ int main(int argc, char *argv[])
 
   //B Register
   // temp_farenheit = (((data.background_temp/100) - 273.15) * 1.8) + 32;
+
+  printf(data);
   
   //C Register
   spotmeter_mean = (((data.spotmeter_mean_temp/100) - 273.15) * 1.8) + 32;
