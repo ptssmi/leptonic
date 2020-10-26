@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
   log_info("CCI telemetry location: %d", cci_get_telemetry_location(i2c_fd));
 
   //Infinite loop to constantly read temperature
-  while(1){
+  //while(1){
 
   // Allocate space to receive the segments
   log_debug("allocating space for segments...");
@@ -124,7 +124,7 @@ int main(int argc, char *argv[])
 
   // printf("Spotmeter Data: %02x \n",data.spotmeter_mean_temp);
 
-  }
+ // }
 
   // Disable telemetry again to leave the module in a usable state for other examples
   cci_set_telemetry_enable_state(i2c_fd, CCI_TELEMETRY_DISABLED);
