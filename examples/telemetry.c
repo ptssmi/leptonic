@@ -17,10 +17,7 @@ int tempconverter(int tempinkelvin);
  */
 int main(int argc, char *argv[])
 {
-  //initialize variables
-  double spotmeter_mean;
-  double spotmeter_max;
-  double spotmeter_min;
+
 
   log_set_level(LOG_INFO);
   int spi_fd, i2c_fd;
@@ -137,6 +134,7 @@ int main(int argc, char *argv[])
 }
 
 int tempconverter(int tempinkelvin){
-  spotmeter_mean = (((tempinkelvin/100) - 273.15) * 1.8) + 32;
-  return tempinkelvin;
+  double result
+  result = (((tempinkelvin/100) - 273.15) * 1.8) + 32;
+  return result;
 }
