@@ -117,10 +117,10 @@ int main(int argc, char *argv[])
   // printf("Spotmeter Max Temp: %0.2f °F \n",spotmeter_max);
   // printf("Spotmeter Min Temp: %0.2f °F \n",spotmeter_min);
   // printf("Spotmeter Population: %02x \n",data.spotmeter_population);
-  // printf("Spotmeter Start Row: %d \n",data.spotmeter_start_row);
-  // printf("Spotmeter Start Column: %d \n",data.spotmeter_start_col);
-  // printf("Spotmeter End Row: %d \n",data.spotmeter_end_row);
-  // printf("Spotmeter End Column: %d \n",data.spotmeter_end_col);
+  printf("Spotmeter Start Row: %d \n",data.spotmeter_start_row);
+  printf("Spotmeter Start Column: %d \n",data.spotmeter_start_col);
+  printf("Spotmeter End Row: %d \n",data.spotmeter_end_row);
+  printf("Spotmeter End Column: %d \n",data.spotmeter_end_col);
 
   // printf("Spotmeter Data: %02x \n",data.spotmeter_mean_temp);
 
