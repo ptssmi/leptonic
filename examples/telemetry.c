@@ -84,7 +84,7 @@ int main(int argc, char *argv[])
   //log_info("VoSPI stream synchronised");
 
   // Parse the telemetry data
-  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[2].packets[0])); //reads A register
+  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[2])); //reads A register
   // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[1].packets[0])); //reads B register 
   // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[2].packets[0])); //reads C register
 
@@ -103,7 +103,7 @@ int main(int argc, char *argv[])
   //B Register
   // temp_farenheit = (((data.background_temp/100) - 273.15) * 1.8) + 32;
 
-  printf("%x \n",data);
+  printf("%lx \n",data);
   
   //C Register
   // spotmeter_mean = (((data.spotmeter_mean_temp/100) - 273.15) * 1.8) + 32;
