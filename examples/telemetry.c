@@ -134,7 +134,7 @@ int main(int argc, char *argv[])
 }
 
 int tempconverter(int tempinkelvin){
-  double result
+  double result;
   result = (((tempinkelvin/100) - 273.15) * 1.8) + 32;
   return result;
 }
