@@ -48,6 +48,7 @@ typedef struct {
   //C Register Values
   uint16_t gain_mode;
   uint16_t effective_gain;
+  uint16_t temp_gain_mode_high_to_low;
 
 
   uint16_t tlinear_resolution;

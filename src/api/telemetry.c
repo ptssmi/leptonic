@@ -41,6 +41,8 @@ telemetry_data_t parse_telemetry_packet(vospi_packet_t* packet)
     .gain_mode = LEPTON_WORD(packet->symbols,5),
     .effective_gain = LEPTON_WORD(packet->symbols,6),
 
+    .temp_gain_mode_high_to_low = LEPTON_WORD(packet->symbols,8),
+
 
     .tlinear_resolution = LEPTON_WORD(packet->symbols,49),
     .spotmeter_mean_temp = LEPTON_WORD(packet->symbols,50),

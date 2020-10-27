@@ -112,6 +112,7 @@ int main(int argc, char *argv[])
 
   printf("Gain Mode: %02x \n",data.gain_mode);
   printf("Effective Gain: %02x \n",data.effective_gain);
+  printf("Effective Gain: %02x \n",data.temp_gain_mode_high_to_low);
 
   printf("T-Linear Resolution: %02x \n",data.tlinear_resolution);
   printf("Spotmeter Mean Temp: %0.2f °F \n",spotmeter_mean);
