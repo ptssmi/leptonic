@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 
-int tempconverter(int tempinkelvin);
+double tempconverter(int tempinkelvin);
 
 /**
  * Main entry point for example.
