@@ -52,7 +52,7 @@ telemetry_data_t parse_telemetry_packet(vospi_packet_t* packet)
     .spotmeter_start_row = LEPTON_WORD(packet->symbols,54),
     .spotmeter_start_col = LEPTON_WORD(packet->symbols,55),
     .spotmeter_end_row = LEPTON_WORD(packet->symbols,56),
-    .spotmeter_end_col = LEPTON_WORD(packet->symbols,180)
+    .spotmeter_end_col = LEPTON_WORD(packet->symbols,90)
     
   };
 
