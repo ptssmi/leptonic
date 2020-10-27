@@ -111,6 +111,7 @@ int main(int argc, char *argv[])
   spotmeter_min = (((data.spotmeter_min_temp/100) - 273.15) * 1.8) + 32;
 
   printf("Gain Mode: %02x \n",data.gain_mode);
+  printf("Effective Gain: %02x \n",data.effective_gain);
 
   printf("T-Linear Resolution: %02x \n",data.tlinear_resolution);
   printf("Spotmeter Mean Temp: %0.2f °F \n",spotmeter_mean);
