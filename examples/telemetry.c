@@ -103,14 +103,14 @@ int main(int argc, char *argv[])
   //B Register
   // temp_farenheit = (((data.background_temp/100) - 273.15) * 1.8) + 32;
 
-  printf("%lx \n",data);
+  // printf("%lx \n",data);
   
   //C Register
   // spotmeter_mean = (((data.spotmeter_mean_temp/100) - 273.15) * 1.8) + 32;
   // spotmeter_max = (((data.spotmeter_max_temp/100) - 273.15) * 1.8) + 32;
   // spotmeter_min = (((data.spotmeter_min_temp/100) - 273.15) * 1.8) + 32;
 
-  // printf("Gain Mode: %02x \n",data.gain_mode);
+  printf("Gain Mode: %02x \n",data.gain_mode);
 
   // printf("T-Linear Resolution: %02x \n",data.tlinear_resolution);
   // printf("Spotmeter Mean Temp: %0.2f °F \n",spotmeter_mean);

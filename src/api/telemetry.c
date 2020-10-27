@@ -3,7 +3,7 @@
 
 telemetry_data_t parse_telemetry_packet(vospi_packet_t* packet)
 {
-  uint32_t reordered_status_bits = LEPTON_DWORD(packet->symbols, 6);
+  //uint32_t reordered_status_bits = LEPTON_DWORD(packet->symbols, 6);
 
   // Decode the status bits first
   // telemetry_data_status_bits_t status_bits = {
