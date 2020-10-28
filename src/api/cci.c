@@ -225,7 +225,7 @@ void cci_set_agc_enable_state(int fd, cci_agc_enable_state_t state)
 /**
  * Change the Spotmeter coordinates
  */
-void cci_set_spotmeter_coordinates(int fd, uint16_t startrow,uint16_t endrow, uint16_t startcol, uint16_t endcol)
+void cci_set_spotmeter_coordinates(int fd, uint16_t startrow, uint16_t endrow, uint16_t startcol, uint16_t endcol)
 {
   WAIT_FOR_BUSY_DEASSERT()
   cci_write_register(fd, CCI_REG_DATA_0, startrow);
