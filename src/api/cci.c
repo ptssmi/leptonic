@@ -243,14 +243,16 @@ void cci_set_spotmeter_coordinates(int fd, uint16_t startrow, uint16_t endrow, u
   WAIT_FOR_BUSY_DEASSERT()
 }
 
-uint32_t cci_get_spotmeter_coordinates(int fd)
+uint64_t cci_get_spotmeter_coordinates(int fd)
 {
   WAIT_FOR_BUSY_DEASSERT()
-  cci_write_register(fd, CCI_REG_DATA_LENGTH, 2);
+  cci_write_register(fd, CCI_REG_DATA_LENGTH, 4);
   cci_write_register(fd, CCI_REG_COMMAND, CCI_CMD_SYS_GET_SPOTMETER_REGION);
   WAIT_FOR_BUSY_DEASSERT()
-  uint16_t ls_word = cci_read_register(fd, CCI_REG_DATA_0);
-  uint16_t ms_word = cci_read_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH);
-  return ms_word << 16 | ls_word;
+  uint16_t startrow = cci_read_register(fd, CCI_REG_DATA_0);
+  uint16_t endrow = cci_read_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH);
+  uint16_t startcol = cci_read_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH);
+  uint16_t endcol = cci_read_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH + CCI_WORD_LENGTH);
+  return startrow << 16 | endrow << 16 | startcol << 16 | endcol;
 }
 
