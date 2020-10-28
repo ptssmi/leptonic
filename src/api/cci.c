@@ -241,7 +241,7 @@ uint32_t cci_get_spotmeter_coordinates(int fd)
 {
   WAIT_FOR_BUSY_DEASSERT()
   cci_write_register(fd, CCI_REG_DATA_LENGTH, 2);
-  cci_write_register(fd, CCI_REG_COMMAND, CCI_CMD_SYS_SET_SPOTMETER_REGION);
+  cci_write_register(fd, CCI_REG_COMMAND, CCI_CMD_SYS_GET_SPOTMETER_REGION);
   WAIT_FOR_BUSY_DEASSERT()
   uint16_t ls_word = cci_read_register(fd, CCI_REG_DATA_0);
   uint16_t ms_word = cci_read_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH);
