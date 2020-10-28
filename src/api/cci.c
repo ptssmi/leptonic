@@ -227,10 +227,10 @@ void cci_set_agc_enable_state(int fd, cci_agc_enable_state_t state)
  */
 void cci_set_spotmeter_coordinates(int fd, int location)
 {
-  uint32_t value = location;
+  uint16_t value = location;
   WAIT_FOR_BUSY_DEASSERT()
   cci_write_register(fd, CCI_REG_DATA_0, value & 0xffff);
-  cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH, value >> 16 & 0xffff);
+  cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH, value);
   cci_write_register(fd, CCI_REG_COMMAND, CCI_CMD_SYS_SET_SPOTMETER_REGION);
   cci_write_register(fd, CCI_REG_DATA_LENGTH, 2);
   WAIT_FOR_BUSY_DEASSERT()
