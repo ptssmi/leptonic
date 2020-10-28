@@ -89,5 +89,6 @@ uint32_t cci_get_agc_enable_state(int fd);
 
 // Module: Spotmeter //
 void cci_set_spotmeter_coordinates(int fd, uint16_t startrow,uint16_t endrow, uint16_t startcol, uint16_t endcol);
+uint32_t cci_get_spotmeter_coordinates(int fd);
 
 #endif /* CCI_H */

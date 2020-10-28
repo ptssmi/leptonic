@@ -69,6 +69,7 @@ int main(int argc, char *argv[])
   log_info("CCI uptime: %d", cci_get_uptime(i2c_fd));
   log_info("CCI telemetry enable state: %d", cci_get_telemetry_enable_state(i2c_fd));
   log_info("CCI telemetry location: %d", cci_get_telemetry_location(i2c_fd));
+   log_info("Spot Coordinates: %d", cci_get_spotmeter_coordinates(i2c_fd));
 
 
   
