@@ -56,11 +56,6 @@ typedef enum {
   CCI_RADIOMETRY_TLINEAR_ENABLED,
 } cci_radiometry_tlinear_enable_state_t;
 
-typedef enum {
-  SPOTMETER_ONE,
-  SPOTMETER_TWO,
-} cci_spotmeter;
-
 /* AGC Modes for use with CCI_CMD_AGC_SET_AGC* */
 typedef enum {
   CCI_AGC_DISABLED,
@@ -94,7 +89,7 @@ uint32_t cci_get_agc_enable_state(int fd);
 
 
 // Module: Spotmeter //
-void cci_set_spotmeter_coordinates(int fd, cci_spotmeter startrow);
+void cci_set_spotmeter_coordinates(int fd, cci_spotmeter startrow,uint16_t endrow, uint16_t startcol, uint16_t endcol);
 uint32_t cci_get_spotmeter_coordinates(int fd);
 
 #endif /* CCI_H */
