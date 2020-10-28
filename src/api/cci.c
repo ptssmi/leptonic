@@ -234,7 +234,6 @@ void cci_set_spotmeter_coordinates(int fd, uint16_t startrow, uint16_t endrow, u
   cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH + CCI_WORD_LENGTH, endcol);
   cci_write_register(fd, CCI_REG_COMMAND, CCI_CMD_SYS_SET_SPOTMETER_REGION);
   cci_write_register(fd, CCI_REG_DATA_LENGTH, 4);
-  
   WAIT_FOR_BUSY_DEASSERT()
 }
 
