@@ -58,12 +58,15 @@ int main(int argc, char *argv[])
   cci_init(i2c_fd);
   cci_set_telemetry_enable_state(i2c_fd, CCI_TELEMETRY_ENABLED);
   cci_set_telemetry_location(i2c_fd, CCI_TELEMETRY_LOCATION_HEADER);
+
+  cci_set_spotmeter_coordinates(i2c_fd,10);
+  
   log_info("CCI uptime: %d", cci_get_uptime(i2c_fd));
   log_info("CCI telemetry enable state: %d", cci_get_telemetry_enable_state(i2c_fd));
   log_info("CCI telemetry location: %d", cci_get_telemetry_location(i2c_fd));
 
 
-  cci_set_spotmeter_coordinates(i2c_fd,10);
+  
 
   //Infinite loop to constantly read temperature
   while(1){
