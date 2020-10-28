@@ -225,12 +225,14 @@ void cci_set_agc_enable_state(int fd, cci_agc_enable_state_t state)
 /**
  * Change the Spotmeter coordinates
  */
-void cci_set_spotmeter_coordinates(int fd, int location)
+void cci_set_spotmeter_coordinates(int fd, uint16_t startrow,uint16_t endrow, uint16_t startcol, uint16_t endcol)
 {
-  uint16_t value = location;
   WAIT_FOR_BUSY_DEASSERT()
-  cci_write_register(fd, CCI_REG_DATA_0, value);
-  cci_write_register(fd, CCI_REG_DATA_LENGTH, 1);
+  cci_write_register(fd, CCI_REG_DATA_0, startrow);
+  cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH, endrow);
+  cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH, startcol);
+  cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH + CCI_WORD_LENGTH, endcol);
+  cci_write_register(fd, CCI_REG_DATA_LENGTH, 4);
   cci_write_register(fd, CCI_REG_COMMAND, CCI_CMD_SYS_SET_SPOTMETER_REGION);
   WAIT_FOR_BUSY_DEASSERT()
 }
