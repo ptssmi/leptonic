@@ -225,20 +225,20 @@ void cci_set_agc_enable_state(int fd, cci_agc_enable_state_t state)
 /**
  * Change the Spotmeter coordinates
  */
-void cci_set_spotmeter_coordinates(int fd, uint16_t startrow, uint16_t endrow, uint16_t startcol, uint16_t endcol)
+void cci_set_spotmeter_coordinates(int fd, cci_spotmeter startrow)
 {
   WAIT_FOR_BUSY_DEASSERT()
   cci_write_register(fd, CCI_REG_DATA_0, startrow);
-  printf("Pass1: %d:",startrow);
-  cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH, endrow);
-  printf("Pass2: %d:",endrow);
-  cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH, startcol);
-  printf("Pass3: %d:",startcol);
-  cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH + CCI_WORD_LENGTH, endcol);
-  printf("Pass4: %d:",endcol);
+  // printf("Pass1: %d:",startrow);
+  // cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH, endrow);
+  // printf("Pass2: %d:",endrow);
+  // cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH, startcol);
+  // printf("Pass3: %d:",startcol);
+  // cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH + CCI_WORD_LENGTH, endcol);
+  // printf("Pass4: %d:",endcol);
   cci_write_register(fd, CCI_REG_COMMAND, CCI_CMD_SYS_SET_SPOTMETER_REGION);
   printf("Pass 5");
-  cci_write_register(fd, CCI_REG_DATA_LENGTH, 4);
+  cci_write_register(fd, CCI_REG_DATA_LENGTH, 1);
   printf("Pass 6");
   WAIT_FOR_BUSY_DEASSERT()
 }
