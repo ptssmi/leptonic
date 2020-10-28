@@ -17,8 +17,6 @@ double tempconverter(int tempinkelvin);
  */
 int main(int argc, char *argv[])
 {
-
-
   log_set_level(LOG_INFO);
   int spi_fd, i2c_fd;
 
@@ -64,6 +62,9 @@ int main(int argc, char *argv[])
   log_info("CCI telemetry enable state: %d", cci_get_telemetry_enable_state(i2c_fd));
   log_info("CCI telemetry location: %d", cci_get_telemetry_location(i2c_fd));
 
+
+  cci_set_spotmeter_coordinates(i2c_fd,10);
+
   //Infinite loop to constantly read temperature
   while(1){
 
@@ -83,9 +84,9 @@ int main(int argc, char *argv[])
   //log_info("VoSPI stream synchronised");
 
   // Parse the telemetry data
-  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[2])); //reads A register
-  // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[1].packets[0])); //reads B register 
-  // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[2].packets[0])); //reads C register
+  // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0])); //reads A register 
+  // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[1])); //reads B register
+  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[2])); //reads C register
 
   //A Register
   // log_info("Telmetry data decoded:");
@@ -102,13 +103,7 @@ int main(int argc, char *argv[])
   //B Register
   // temp_farenheit = (((data.background_temp/100) - 273.15) * 1.8) + 32;
 
-  // printf("%lx \n",data);
-  
   //C Register
-  // spotmeter_mean = (((data.spotmeter_mean_temp/100) - 273.15) * 1.8) + 32;
-  // spotmeter_max = (((data.spotmeter_max_temp/100) - 273.15) * 1.8) + 32;
-  // spotmeter_min = (((data.spotmeter_min_temp/100) - 273.15) * 1.8) + 32;
-
   printf("T-Linear Resolution: %02x \n",data.tlinear_resolution);
   printf("Spotmeter Mean Temp: %0.2f °F \n",tempconverter(data.spotmeter_mean_temp));
   printf("Spotmeter Max Temp: %0.2f °F \n",tempconverter(data.spotmeter_max_temp));

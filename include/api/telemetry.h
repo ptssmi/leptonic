@@ -46,11 +46,6 @@ typedef struct {
   // uint16_t background_temp;
 
   //C Register Values
-  // uint16_t gain_mode;
-  // uint16_t effective_gain;
-  // uint16_t temp_gain_mode_high_to_low;
-
-
   uint16_t tlinear_resolution;
   uint16_t spotmeter_mean_temp;
   uint16_t spotmeter_max_temp;
@@ -61,8 +56,6 @@ typedef struct {
   uint16_t spotmeter_end_row;
   uint16_t spotmeter_end_col;
 
-
- 
 } telemetry_data_t;
 
 telemetry_data_t parse_telemetry_packet(vospi_packet_t* packet);
