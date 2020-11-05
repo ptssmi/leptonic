@@ -261,7 +261,6 @@ char filename[]="output.txt";
         fprintf(fp, "%i ", pixel_array[i]);
     }
     fclose(fp);
-}
 
 //  }
 
