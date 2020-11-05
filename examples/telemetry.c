@@ -62,7 +62,7 @@ int main(int argc, char *argv[])
   // Enable telemetry in the footer of segments
   cci_init(i2c_fd);
   cci_set_telemetry_enable_state(i2c_fd, CCI_TELEMETRY_DISABLED);
-  cci_set_telemetry_location(i2c_fd, CCI_TELEMETRY_LOCATION_HEADER);
+  //cci_set_telemetry_location(i2c_fd, CCI_TELEMETRY_LOCATION_HEADER);
 
   //cci_set_spotmeter_coordinates(i2c_fd,startrow,endrow,startcol,endcol);
 
