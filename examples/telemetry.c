@@ -96,7 +96,7 @@ int main(int argc, char *argv[])
   // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0])); //reads A register 
   // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[1])); //reads B register
   // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[3])); //reads C register
-  for(int j = 0 j<VOSPI_SEGMENTS_PER_FRAME;j++){
+  for(int j = 0;j<VOSPI_SEGMENTS_PER_FRAME;j++){
     for(int i = 0; i<60;i++){
     telemetry_data_t data = parse_telemetry_packet(&(frame.segments[j].packets[i])); 
 
