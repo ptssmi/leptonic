@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
   // Parse the telemetry data
   // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0])); //reads A register 
   // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[1])); //reads B register
-  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[1])); //reads C register
+  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0])); //reads C register
 
   //A Register
   // log_info("Telmetry data decoded:");
