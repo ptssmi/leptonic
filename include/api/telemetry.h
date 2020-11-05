@@ -50,8 +50,8 @@ typedef struct {
   // uint16_t spotmeter_mean_temp;
   // uint16_t spotmeter_max_temp;
   // uint16_t spotmeter_min_temp;
-  uint16_t spotmeter_population;
-  // uint16_t spotmeter_start_row;
+  // uint16_t spotmeter_population;
+  uint16_t spotmeter_start_row;
   // uint16_t spotmeter_start_col;
   // uint16_t spotmeter_end_row;
   // uint16_t spotmeter_end_col;

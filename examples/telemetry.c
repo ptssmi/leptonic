@@ -119,8 +119,8 @@ int main(int argc, char *argv[])
   // printf("Spotmeter Mean Temp: %0.2f\n\n °F \n",tempconverter(data.spotmeter_mean_temp));
   // printf("Spotmeter Max Temp: %0.2f\n\n °F \n",tempconverter(data.spotmeter_max_temp));
   // printf("Spotmeter Min Temp: %0.2f\n\n °F \n",tempconverter(data.spotmeter_min_temp));
-  printf("Spotmeter Population: %d \n \n",data.spotmeter_population);
-  // printf("Spotmeter Start Row: %d \n \n",data.spotmeter_start_row);
+  // printf("Spotmeter Population: %d \n \n",data.spotmeter_population);
+  printf("Spotmeter Start Row: %d \n \n",data.spotmeter_start_row);
   // printf("Spotmeter Start Column: %d \n \n",data.spotmeter_start_col);
   // printf("Spotmeter End Row: %d \n \n",data.spotmeter_end_row);
   // printf("Spotmeter End Column: %d \n \n",data.spotmeter_end_col);
