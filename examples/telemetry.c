@@ -258,7 +258,7 @@ int main(int argc, char *argv[])
   FILE *fp = fopen(filename, "w");
   for(int i = 0; i < 19200; i++)
   {
-      fprintf(fp, "%f ", pixelarray[i]);
+      fprintf(fp, "%0.2f\n ", pixelarray[i]);
   }
   fclose(fp);
 
