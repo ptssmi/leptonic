@@ -254,13 +254,13 @@ int main(int argc, char *argv[])
     }
   }
 
-char filename[]="output.txt";
-    FILE *fp = fopen(filename, "w");
-    for(int i = 0; i < 19200; i++)
-    {
-        fprintf(fp, "%i ", pixel_array[i]);
-    }
-    fclose(fp);
+  char filename[]="output.txt";
+  FILE *fp = fopen(filename, "w");
+  for(int i = 0; i < 19200; i++)
+  {
+      fprintf(fp, "%i ", pixelarray[i]);
+  }
+  fclose(fp);
 
 //  }
 
