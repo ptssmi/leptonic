@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
   
 
   //Infinite loop to constantly read temperature
-  while(1){
+  // while(1){
 
   // Allocate space to receive the segments
   log_debug("allocating space for segments...");
@@ -305,7 +305,7 @@ printf("Variable 178: %d",data.variable178);
 printf("Variable 179: %d",data.variable179);
 
 
- }
+//  }
 
   // Disable telemetry again to leave the module in a usable state for other examples
   cci_set_telemetry_enable_state(i2c_fd, CCI_TELEMETRY_DISABLED);
