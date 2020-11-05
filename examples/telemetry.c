@@ -61,14 +61,14 @@ int main(int argc, char *argv[])
 
   // Enable telemetry in the footer of segments
   cci_init(i2c_fd);
-  cci_set_telemetry_enable_state(i2c_fd, CCI_TELEMETRY_ENABLED);
-  cci_set_telemetry_location(i2c_fd, CCI_TELEMETRY_LOCATION_HEADER);
+  cci_set_telemetry_enable_state(i2c_fd, CCI_TELEMETRY_DISABLED);
+  //cci_set_telemetry_location(i2c_fd, CCI_TELEMETRY_LOCATION_HEADER);
 
   //cci_set_spotmeter_coordinates(i2c_fd,startrow,endrow,startcol,endcol);
 
-  log_info("CCI uptime: %d \n", cci_get_uptime(i2c_fd));
-  log_info("CCI telemetry enable state: %d \n", cci_get_telemetry_enable_state(i2c_fd));
-  log_info("CCI telemetry location: %d \n", cci_get_telemetry_location(i2c_fd));
+  //log_info("CCI uptime: %d \n", cci_get_uptime(i2c_fd));
+  //log_info("CCI telemetry enable state: %d \n", cci_get_telemetry_enable_state(i2c_fd));
+  //log_info("CCI telemetry location: %d \n", cci_get_telemetry_location(i2c_fd));
   //log_info("Spot Coordinates: %d \n", cci_get_spotmeter_coordinates(i2c_fd));
 
 
@@ -95,7 +95,7 @@ int main(int argc, char *argv[])
   // Parse the telemetry data
   // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0])); //reads A register 
   // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[1])); //reads B register
-  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[3])); //reads C register
+  telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0])); //reads C register
 
   //A Register
   // log_info("Telmetry data decoded:");
