@@ -222,31 +222,31 @@ void cci_set_agc_enable_state(int fd, cci_agc_enable_state_t state)
   WAIT_FOR_BUSY_DEASSERT()
 }
 
-/**
- * Change the Spotmeter coordinates
- */
-void cci_set_spotmeter_coordinates(int fd, uint16_t startrow, uint16_t endrow, uint16_t startcol, uint16_t endcol)
-{
-  WAIT_FOR_BUSY_DEASSERT()
-  cci_write_register(fd, CCI_REG_DATA_0, startrow);
-  cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH, endrow);
-  cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH, startcol);
-  cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH + CCI_WORD_LENGTH, endcol);
-  cci_write_register(fd, CCI_REG_COMMAND, CCI_CMD_SYS_SET_SPOTMETER_REGION);
-  cci_write_register(fd, CCI_REG_DATA_LENGTH, 4);
-  WAIT_FOR_BUSY_DEASSERT()
-}
+// /**
+//  * Change the Spotmeter coordinates
+//  */
+// void cci_set_spotmeter_coordinates(int fd, uint16_t startrow, uint16_t endrow, uint16_t startcol, uint16_t endcol)
+// {
+//   WAIT_FOR_BUSY_DEASSERT()
+//   cci_write_register(fd, CCI_REG_DATA_0, startrow);
+//   cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH, endrow);
+//   cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH, startcol);
+//   cci_write_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH + CCI_WORD_LENGTH, endcol);
+//   cci_write_register(fd, CCI_REG_COMMAND, CCI_CMD_SYS_SET_SPOTMETER_REGION);
+//   cci_write_register(fd, CCI_REG_DATA_LENGTH, 4);
+//   WAIT_FOR_BUSY_DEASSERT()
+// }
 
-uint64_t cci_get_spotmeter_coordinates(int fd)
-{
-  WAIT_FOR_BUSY_DEASSERT()
-  cci_write_register(fd, CCI_REG_DATA_LENGTH, 4);
-  cci_write_register(fd, CCI_REG_COMMAND, CCI_CMD_SYS_GET_SPOTMETER_REGION);
-  WAIT_FOR_BUSY_DEASSERT()
-  uint16_t startrow = cci_read_register(fd, CCI_REG_DATA_0);
-  uint16_t endrow = cci_read_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH);
-  uint16_t startcol = cci_read_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH);
-  uint16_t endcol = cci_read_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH + CCI_WORD_LENGTH);
-  return startrow << 16 | endrow << 16 | startcol << 16 | endcol;
-}
+// uint64_t cci_get_spotmeter_coordinates(int fd)
+// {
+//   WAIT_FOR_BUSY_DEASSERT()
+//   cci_write_register(fd, CCI_REG_DATA_LENGTH, 4);
+//   cci_write_register(fd, CCI_REG_COMMAND, CCI_CMD_SYS_GET_SPOTMETER_REGION);
+//   WAIT_FOR_BUSY_DEASSERT()
+//   uint16_t startrow = cci_read_register(fd, CCI_REG_DATA_0);
+//   uint16_t endrow = cci_read_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH);
+//   uint16_t startcol = cci_read_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH);
+//   uint16_t endcol = cci_read_register(fd, CCI_REG_DATA_0 + CCI_WORD_LENGTH + CCI_WORD_LENGTH + CCI_WORD_LENGTH);
+//   return startrow << 16 | endrow << 16 | startcol << 16 | endcol;
+// }
 

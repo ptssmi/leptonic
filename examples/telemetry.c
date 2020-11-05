@@ -67,16 +67,6 @@ int main(int argc, char *argv[])
   cci_set_telemetry_enable_state(i2c_fd, CCI_TELEMETRY_DISABLED);
   //cci_set_telemetry_location(i2c_fd, CCI_TELEMETRY_LOCATION_HEADER);
 
-  //cci_set_spotmeter_coordinates(i2c_fd,startrow,endrow,startcol,endcol);
-
-  //log_info("CCI uptime: %d \n", cci_get_uptime(i2c_fd));
-  //log_info("CCI telemetry enable state: %d \n", cci_get_telemetry_enable_state(i2c_fd));
-  //log_info("CCI telemetry location: %d \n", cci_get_telemetry_location(i2c_fd));
-  //log_info("Spot Coordinates: %d \n", cci_get_spotmeter_coordinates(i2c_fd));
-
-
-  
-
   //Infinite loop to constantly read temperature
   // while(1){
 
@@ -95,42 +85,11 @@ int main(int argc, char *argv[])
   }
   //log_info("VoSPI stream synchronised");
 
-  // Parse the telemetry data
-  // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[0])); //reads A register 
-  // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[1])); //reads B register
-  // telemetry_data_t data = parse_telemetry_packet(&(frame.segments[0].packets[3])); //reads C register
-
   counter = 0;
 
   for(int j = 0;j<VOSPI_SEGMENTS_PER_FRAME;j++){
     for(int i = 0; i<60;i++){
     telemetry_data_t data = parse_telemetry_packet(&(frame.segments[j].packets[i])); 
-
-    //A Register
-    // log_info("Telmetry data decoded:");
-    // log_info("Msec since boot: %02x", data.msec_since_boot);
-    // log_info("Msec since last FFC: %02x", data.msec_last_ffc);
-    // log_info("Frame mean: %02x", data.frame_mean);
-    // log_info("FPA Temp Kelvin100: %02x", data.fpa_temp_kelvin_100);
-    // log_info("FFC Desired: %02x", data.status_bits.ffc_desired);
-    // log_info("FFC State: %02x", data.status_bits.ffc_state);
-    // log_info("AGC State: %02x", data.status_bits.agc_state);
-    // log_info("Shutter locked?: %02x", data.status_bits.shutter_lockout);
-    // log_info("Overtemp shutdown imminent?: %02x", data.status_bits.overtemp_shutdown_imminent);
-
-    //B Register
-    // temp_farenheit = (((data.background_temp/100) - 273.15) * 1.8) + 32;
-
-    //C Register
-    // printf("T-Linear Resolution: %02x \n",data.tlinear_resolution);
-    // printf("Spotmeter Mean Temp: %0.2f\n\n\n °F \n",tempconverter(data.spotmeter_mean_temp));
-    // printf("Spotmeter Max Temp: %0.2f\n\n\n °F \n",tempconverter(data.spotmeter_max_temp));
-    // printf("Spotmeter Min Temp: %0.2f\n\n\n °F \n",tempconverter(data.spotmeter_min_temp));
-    // printf("Spotmeter Population: %d \n \n",data.spotmeter_population);
-    //printf("Spotmeter Start Row: %d \n \n",data.spotmeter_start_row);
-    // printf("Spotmeter Start Column: %d \n \n",data.spotmeter_start_col);
-    // printf("Spotmeter End Row: %d \n \n",data.spotmeter_end_row);
-    // printf("Spotmeter End Column: %d \n \n",data.spotmeter_end_col);
 
     pixelarray[counter] = tempconverter(data.pixel0);
     counter++;
