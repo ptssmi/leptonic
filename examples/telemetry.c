@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
-#include </usr/include/python3.7/Python.h>
+// #include </usr/include/python3.7/Python.h>
 
 double tempconverter(int tempinkelvin);
 
@@ -260,15 +260,15 @@ int main(int argc, char *argv[])
 
   
 
-  Py_Initialize();
-  PyRun_SimpleString("import sys");
-  PyRun_SimpleString("sys.path.append('/home/pi/ThermalRead/leptonic/bin/examples')");
-  PyObject *mod = PyImport_ImportModule("test");
-  PyObject *var1Py = PyObject_GetAttrString(mod, "x");
-  int x = PyLong_AsLong(var1Py);
-  printf("var1=%d ; var1==NULL: %d\n", x, var1Py==NULL);
-  Py_XDECREF(var1Py);
-  Py_Finalize();
+  // Py_Initialize();
+  // PyRun_SimpleString("import sys");
+  // PyRun_SimpleString("sys.path.append('/home/pi/ThermalRead/leptonic/bin/examples')");
+  // PyObject *mod = PyImport_ImportModule("test");
+  // PyObject *var1Py = PyObject_GetAttrString(mod, "x");
+  // int x = PyLong_AsLong(var1Py);
+  // printf("var1=%d ; var1==NULL: %d\n", x, var1Py==NULL);
+  // Py_XDECREF(var1Py);
+  // Py_Finalize();
 
 //  }
 
