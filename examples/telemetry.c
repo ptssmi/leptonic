@@ -7,6 +7,7 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
+#include <Python.h>
 
 double tempconverter(int tempinkelvin);
 
@@ -261,6 +262,11 @@ int main(int argc, char *argv[])
       fprintf(fp, "%0.2f\n ", pixelarray[i]);
   }
   fclose(fp);
+
+  PyObject *mod = PyImport_ImportModule("test");
+  PyObject *var1Py = PyObject_GetAttrString(mod, "x");
+  int c_var1 = PyLong_AsLong(var1Py);
+  printf("var1 with C: %d\n", c_var1);
 
 //  }
 
