@@ -7,14 +7,9 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
-#include <Python.h>
+//#include <Python.h>
 
 double tempconverter(int tempinkelvin);
-
-uint16_t startrow = 10;
-uint16_t endrow = 15;
-uint16_t startcol = 10;
-uint16_t endcol = 15;
 
 int counter;
 double pixelarray[19200];
@@ -263,10 +258,10 @@ int main(int argc, char *argv[])
   }
   fclose(fp);
 
-  PyObject *mod = PyImport_ImportModule("test");
-  PyObject *var1Py = PyObject_GetAttrString(mod, "x");
-  int c_var1 = PyLong_AsLong(var1Py);
-  printf("var1 with C: %d\n", c_var1);
+  // PyObject *mod = PyImport_ImportModule("test");
+  // PyObject *var1Py = PyObject_GetAttrString(mod, "x");
+  // int c_var1 = PyLong_AsLong(var1Py);
+  // printf("var1 with C: %d\n", c_var1);
 
 //  }
 
