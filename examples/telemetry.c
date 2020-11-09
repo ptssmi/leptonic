@@ -250,7 +250,7 @@ int main(int argc, char *argv[])
     }
   }
 
-   double datatransfer(pixelarray);
+  datatransfer(&pixelarray);
 
   char filename[]="output.txt";
   FILE *fp = fopen(filename, "w");
@@ -291,6 +291,6 @@ double tempconverter(int tempinkelvin){
   return result;
 }
 
-double *datatransfer(double *data){
-  return data;
+double datatransfer(double *data){
+  return *data;
 }
