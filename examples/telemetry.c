@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
   //cci_set_telemetry_location(i2c_fd, CCI_TELEMETRY_LOCATION_HEADER);
 
   //Infinite loop to constantly read temperature
-  // while(1){
+  while(1){
 
   // Allocate space to receive the segments
   log_debug("allocating space for segments...");
@@ -254,23 +254,11 @@ int main(int argc, char *argv[])
   FILE *fp = fopen(filename, "w");
   for(int i = 0; i < 19200; i++)
   {
-      fprintf(fp, "%0.2f\n ", pixelarray[i]);
+    fprintf(fp, "%0.2f\n ", pixelarray[i]);
   }
   fclose(fp);
 
-  
-
-  // Py_Initialize();
-  // PyRun_SimpleString("import sys");
-  // PyRun_SimpleString("sys.path.append('/home/pi/ThermalRead/leptonic/bin/examples')");
-  // PyObject *mod = PyImport_ImportModule("test");
-  // PyObject *var1Py = PyObject_GetAttrString(mod, "x");
-  // int x = PyLong_AsLong(var1Py);
-  // printf("var1=%d ; var1==NULL: %d\n", x, var1Py==NULL);
-  // Py_XDECREF(var1Py);
-  // Py_Finalize();
-
-//  }
+ }
 
   // Disable telemetry again to leave the module in a usable state for other examples
   cci_set_telemetry_enable_state(i2c_fd, CCI_TELEMETRY_DISABLED);
