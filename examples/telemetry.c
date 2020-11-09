@@ -250,6 +250,8 @@ int main(int argc, char *argv[])
     }
   }
 
+  temparray(pixelarray[]);
+
   char filename[]="output.txt";
   FILE *fp = fopen(filename, "w");
   for(int i = 0; i < 19200; i++)
@@ -287,4 +289,8 @@ double tempconverter(int tempinkelvin){
   double result;
   result = (((tempinkelvin/100) - 273.15) * 1.8) + 32;
   return result;
+}
+
+double *temparray(double data[]){
+  return data[];
 }
