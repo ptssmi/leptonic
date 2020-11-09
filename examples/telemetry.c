@@ -291,6 +291,6 @@ double tempconverter(int tempinkelvin){
   return result;
 }
 
-double datatransfer(double *data){
+double *datatransfer(double *data){
   return data;
 }
