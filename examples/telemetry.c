@@ -250,7 +250,7 @@ int main(int argc, char *argv[])
     }
   }
 
-   datatransfer(&pixelarray);
+   datatransfer(pixelarray);
 
   char filename[]="output.txt";
   FILE *fp = fopen(filename, "w");
