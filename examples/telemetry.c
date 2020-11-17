@@ -14,6 +14,10 @@ double tempconverter(int tempinkelvin);
 int counter;
 double pixelarray[19200];
 
+
+//   input into the main ./telemetry /dev/spidev0.0 /dev/i2c-1
+
+
 /**
  * Main entry point for example.
  *
