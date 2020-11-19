@@ -13,8 +13,8 @@ main:
 	$(CC) $(CFLAGS) -pthread -lzmq $(API_INCLUDES) ${API_SOURCES} src/leptonic.c -o bin/leptonic
 
 examples:
-	@mkdir -p bin/examples/
-	$(CC) $(CFLAGS) $(API_INCLUDES) ${API_SOURCES} examples/telemetry.c -o bin/examples/telemetry
+	@mkdir -p bin/main/
+	$(CC) $(CFLAGS) $(API_INCLUDES) ${API_SOURCES} main/telemetry.c -o bin/main/telemetry
 clean:
 	@rm -f *.o
 	@rm leptonic
