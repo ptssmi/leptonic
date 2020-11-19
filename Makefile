@@ -11,8 +11,7 @@ CFLAGS = -g -DLOG_USE_COLOR=1 -Wall
 
 main:
 	$(CC) $(CFLAGS) -pthread -lzmq $(API_INCLUDES) ${API_SOURCES} src/leptonic.c -o bin/leptonic
-
-examples:
+thermalread:
 	@mkdir -p bin/main/
 	$(CC) $(CFLAGS) $(API_INCLUDES) ${API_SOURCES} main/telemetry.c -o bin/main/telemetry
 clean:
