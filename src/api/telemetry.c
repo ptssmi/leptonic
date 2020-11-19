@@ -3,12 +3,8 @@
 
 telemetry_data_t parse_telemetry_packet(vospi_packet_t* packet)
 {
-
-
   telemetry_data_t telemetry_data = {
-
-
-
+    //Declares all register locations for temperature data
     .pixel0 = LEPTON_WORD(packet->symbols,0),
     .pixel2 = LEPTON_WORD(packet->symbols,2),
     .pixel4 = LEPTON_WORD(packet->symbols,4),
@@ -89,8 +85,6 @@ telemetry_data_t parse_telemetry_packet(vospi_packet_t* packet)
     .pixel154 = LEPTON_WORD(packet->symbols,154),
     .pixel156 = LEPTON_WORD(packet->symbols,156),
     .pixel158 = LEPTON_WORD(packet->symbols,158),
-
   };
-
   return telemetry_data;
 }

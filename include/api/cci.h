@@ -21,9 +21,6 @@
 #define CCI_CMD_SYS_GET_TELEMETRY_LOCATION 0x021C
 #define CCI_CMD_SYS_SET_TELEMETRY_LOCATION 0x021D
 
-#define CCI_CMD_SYS_SET_SPOTMETER_REGION 0x0ECD
-#define CCI_CMD_SYS_GET_SPOTMETER_REGION 0x0ECC
-
 #define CCI_CMD_RAD_GET_RADIOMETRY_ENABLE_STATE 0x0E10
 #define CCI_CMD_RAD_SET_RADIOMETRY_ENABLE_STATE 0x0E11
 #define CCI_CMD_RAD_GET_RADIOMETRY_TLINEAR_ENABLE_STATE 0x0EC0
@@ -86,10 +83,5 @@ uint32_t cci_get_radiometry_tlinear_enable_state(int fd);
 /* Module: AGC */
 void cci_set_agc_enable_state(int fd, cci_agc_enable_state_t state);
 uint32_t cci_get_agc_enable_state(int fd);
-
-
-// Module: Spotmeter //
-void cci_set_spotmeter_coordinates(int fd, uint16_t startrow,uint16_t endrow, uint16_t startcol, uint16_t endcol);
-uint64_t cci_get_spotmeter_coordinates(int fd);
 
 #endif /* CCI_H */

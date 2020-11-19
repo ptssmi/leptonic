@@ -7,28 +7,23 @@
 #include <unistd.h>
 #include <stdlib.h>
 #include <fcntl.h>
-// #include </usr/include/python3.7/Python.h>
 
+//Function declarations
 double tempconverter(int tempinkelvin);
 
+//Variable declarations
 int counter;
 double pixelarray[19200];
 
+// Run the program with: ./telemetry /dev/spidev0.0 /dev/i2c-1
 
-//   input into the main ./telemetry /dev/spidev0.0 /dev/i2c-1
-
-
-/**
- * Main entry point for example.
- *
- * This example enables telemetry data, transfers a single frame then displays the received information.
- */
+//This program constantly reads frames from the FLIR Lepton 3.5
 int main(int argc, char *argv[])
 {
   log_set_level(LOG_INFO);
   int spi_fd, i2c_fd;
 
-  // Check we have enough arguments to work
+  // Checks to see if I2C and SPI pins have been declared
   if (argc < 3) {
     log_error("Can't start - SPI and CCI I2C device file paths must be specified.");
     exit(-1);
@@ -62,12 +57,12 @@ int main(int argc, char *argv[])
       exit(-1);
   }
 
-  // Enable telemetry in the footer of segments
+  //Initialize I2C
   cci_init(i2c_fd);
+  //Ensure telemetry is disabled
   cci_set_telemetry_enable_state(i2c_fd, CCI_TELEMETRY_DISABLED);
-  //cci_set_telemetry_location(i2c_fd, CCI_TELEMETRY_LOCATION_HEADER);
 
-  //Infinite loop to constantly read temperature
+  //Infinite loop to constantly read frames
   while(1){
 
   // Allocate space to receive the segments
@@ -78,17 +73,16 @@ int main(int argc, char *argv[])
   }
 
   // Synchronise and transfer a single frame
-  //log_info("aquiring VoSPI synchronisation");
   if (0 == sync_and_transfer_frame(spi_fd, &frame)) {
     log_error("failed to obtain frame from device.");
     exit(-10);
   }
-  //log_info("VoSPI stream synchronised");
 
   counter = 0;
 
+  //Each frame contains 4 segments with 60 packets each
   for(int j = 0;j<VOSPI_SEGMENTS_PER_FRAME;j++){
-    for(int i = 0; i<60;i++){
+    for(int i = 0; i<VOSPI_PACKETS_PER_SEGMENT_NORMAL;i++){
     telemetry_data_t data = parse_telemetry_packet(&(frame.segments[j].packets[i])); 
 
     pixelarray[counter] = tempconverter(data.pixel0);
@@ -254,6 +248,7 @@ int main(int argc, char *argv[])
     }
   }
 
+  //Outputs thermal data to a text file
   char filename[]="output.txt";
   FILE *fp = fopen(filename, "w");
   for(int i = 0; i < 19200; i++)
@@ -264,17 +259,11 @@ int main(int argc, char *argv[])
 
  }
 
-  // Disable telemetry again to leave the module in a usable state for other examples
-  cci_set_telemetry_enable_state(i2c_fd, CCI_TELEMETRY_DISABLED);
-
-  // Close files
-  close(spi_fd);
-  close(i2c_fd);
-
   return 0;
   
 }
 
+//Function to convert temperature data to fahrenheit
 double tempconverter(int tempinkelvin){
   double result;
   result = (((tempinkelvin/100) - 273.15) * 1.8) + 32;
